@@ -13,6 +13,16 @@ rcbows.register_arrow("civarsenal:arrow_basic", {
 	},
 })
 
+minetest.register_craft({
+	output = "civarsenal:inv_arrow 5",
+	type = "shaped",
+	recipe = {
+		{"", "", "group:metal_ingot"},
+		{"", "default:stick", ""},
+		{"group:wool", "", ""},
+	}
+})
+
 rcbows.register_arrow("civarsenal:arrow_fire", {
 	projectile_texture = "civarsenal_projectile_arrow",
 	damage = 8 * default.DAMAGE_MULTIPLIER,
@@ -28,9 +38,15 @@ rcbows.register_arrow("civarsenal:arrow_fire", {
 	}
 })
 
+minetest.register_craft({
+	type = "shapeless",
+	output = "civarsenal:inv_arrow_fire 5",
+	recipe = {"civarsenal:inv_arrow", "civarsenal:inv_arrow", "civarsenal:inv_arrow", "civarsenal:inv_arrow", "civarsenal:inv_arrow", "group:food_oil", "default:torch"},
+})
+
 rcbows.register_arrow("civarsenal:cannonball_explosive", {
 	projectile_texture = "civarsenal_projectile_cannonball",
-	damage = 100 * default.DAMAGE_MULTIPLIER,
+	damage = 50 * default.DAMAGE_MULTIPLIER,
 	inventory_arrow = {
 		name = "civarsenal:cannonball_explosive",
 		description = S("Explosive Cannonball"),
@@ -41,11 +57,17 @@ rcbows.register_arrow("civarsenal:cannonball_explosive", {
 	effects = {
 		explosion = {
 			mod = "tnt",
-			damage = 10 * default.DAMAGE_MULTIPLIER,
+			damage = 5, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
 			radius = 2,
 		},
 		trail_particle = "civarsenal_particle_fire.png",
 	}
+})
+
+minetest.register_craft({
+	output = "civarsenal:cannonball_explosive",
+	type = "shapeless",
+	recipe = {"tnt:tnt", "group:coal", "group:metal_ingot"},
 })
 
 rcbows.register_bow("civarsenal:bow_wood_short", {
