@@ -41,7 +41,7 @@ rcbows.register_arrow("civarsenal:cannonball_explosive", {
 	effects = {
 		explosion = {
 			mod = "tnt",
-			damage = 60 * default.DAMAGE_MULTIPLIER,
+			damage = 10 * default.DAMAGE_MULTIPLIER,
 			radius = 2,
 		},
 		trail_particle = "civarsenal_particle_fire.png",
