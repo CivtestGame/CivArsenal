@@ -56,6 +56,7 @@ rcbows.register_arrow("civarsenal:cannonball_explosive", {
 	},
 	drop = "",
 	stack_max = 1,
+	drag_factor = 0.975,
 	effects = {
 		explosion = {
 			mod = "tnt",
@@ -90,6 +91,7 @@ rcbows.register_arrow("civarsenal:bolt_heavy", {
 	damage = 4 * default.DAMAGE_MULTIPLIER,
 	pierce = 10 * default.DAMAGE_MULTIPLIER,
 	stack_max = 20,
+	drag_factor = 0.985,
 	inventory_arrow = {
 		name = "civarsenal:inv_bolt_heavy",
 		description = S("Heavy Bolt"),
@@ -198,7 +200,7 @@ rcbows.register_bow("civarsenal:bow_composite", {
 rcbows.register_bow("civarsenal:handcannon", {
 	description = S("Handcannon"),
 	image = "civarsenal_handcannon.png",
-	strength = 15,
+	strength = 20,
 	uses = 50,
 	charge_time = 5.0,
 	base_texture = "civarsenal_handcannon.png",
