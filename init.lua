@@ -99,6 +99,12 @@ rcbows.register_arrow("civarsenal:bolt_heavy", {
 	},
 })
 
+minetest.register_craft({
+	output = "civarsenal:inv_bolt_heavy 10",
+	type = "shaped",
+	recipe = {{"default:comp_toolrod", "default:comp_steel_swordhead_sharp"}},
+})
+
 rcbows.register_arrow("civarsenal:bolt_fire", {
 	projectile_texture = "civarsenal_projectile_bolt",
 	damage = 3 * default.DAMAGE_MULTIPLIER,
@@ -114,6 +120,12 @@ rcbows.register_arrow("civarsenal:bolt_fire", {
 		replace_node = "fire:basic_flame",
 		trail_particle = "civarsenal_particle_fire.png",
 	}
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "civarsenal:inv_bolt_fire 5",
+	recipe = {"civarsenal:inv_bolt", "civarsenal:inv_bolt", "civarsenal:inv_bolt", "civarsenal:inv_bolt", "civarsenal:inv_bolt", "group:food_oil", "default:torch"},
 })
 
 rcbows.register_arrow("civarsenal:bolt_explosive", {
