@@ -6,6 +6,7 @@ local S = minetest.get_translator(minetest.get_current_modname())
 rcbows.register_arrow("civarsenal:arrow_basic", {
 	projectile_texture = "civarsenal_projectile_arrow",
 	damage = 10 * default.DAMAGE_MULTIPLIER,
+	stack_max = 20,
 	inventory_arrow = {
 		name = "civarsenal:inv_arrow",
 		description = S("Arrow"),
@@ -32,6 +33,7 @@ rcbows.register_arrow("civarsenal:arrow_fire", {
 		inventory_image = "civarsenal_arrow_fire.png",
 	},
 	drop = "civarsenal:inv_arrow",
+	stack_max = 20,
 	effects = {
 		replace_node = "fire:basic_flame",
 		trail_particle = "civarsenal_particle_fire.png",
@@ -70,6 +72,75 @@ minetest.register_craft({
 	type = "shapeless",
 	recipe = {"tnt:tnt", "group:coal", "group:metal_ingot"},
 })
+
+rcbows.register_arrow("civarsenal:bolt_basic", {
+	projectile_texture = "civarsenal_projectile_bolt",
+	damage = 6 * default.DAMAGE_MULTIPLIER,
+	pierce = 6 * default.DAMAGE_MULTIPLIER,
+	stack_max = 20,
+	inventory_arrow = {
+		name = "civarsenal:inv_bolt",
+		description = S("Bolt"),
+		inventory_image = "civarsenal_bolt.png",
+	},
+})
+
+rcbows.register_arrow("civarsenal:bolt_heavy", {
+	projectile_texture = "civarsenal_projectile_bolt",
+	damage = 4 * default.DAMAGE_MULTIPLIER,
+	pierce = 10 * default.DAMAGE_MULTIPLIER,
+	stack_max = 20,
+	inventory_arrow = {
+		name = "civarsenal:inv_bolt_heavy",
+		description = S("Heavy Bolt"),
+		inventory_image = "civarsenal_bolt_heavy.png",
+	},
+})
+
+rcbows.register_arrow("civarsenal:bolt_fire", {
+	projectile_texture = "civarsenal_projectile_bolt",
+	damage = 3 * default.DAMAGE_MULTIPLIER,
+	pierce = 7 * default.DAMAGE_MULTIPLIER,
+	inventory_arrow = {
+		name = "civarsenal:inv_bolt_fire",
+		description = S("Incendiary Bolt"),
+		inventory_image = "civarsenal_bolt_fire.png",
+	},
+	drop = "civarsenal:inv_bolt",
+	stack_max = 20,
+	effects = {
+		replace_node = "fire:basic_flame",
+		trail_particle = "civarsenal_particle_fire.png",
+	}
+})
+
+rcbows.register_arrow("civarsenal:bolt_explosive", {
+	projectile_texture = "civarsenal_projectile_bolt",
+	damage = 10 * default.DAMAGE_MULTIPLIER,
+	inventory_arrow = {
+		name = "civarsenal:inv_bolt_explosive",
+		description = S("Explosive Bolt"),
+		inventory_image = "civarsenal_bolt_explosive.png",
+	},
+	drop = "",
+	stack_max = 10,
+	effects = {
+		explosion = {
+			mod = "tnt",
+			damage = 6, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
+			radius = 0.5,
+			entity_damage = 6,
+		},
+		trail_particle = "civarsenal_particle_fire.png",
+	}
+})
+
+minetest.register_craft({
+	output = "civarsenal:inv_bolt_explosive",
+	type = "shapeless",
+	recipe = {"tnt:tnt_stick", "civarsenal:inv_bolt"},
+})
+
 
 rcbows.register_bow("civarsenal:bow_wood_short", {
 	description = S("Wooden Shortbow"),
@@ -136,6 +207,22 @@ rcbows.register_bow("civarsenal:handcannon", {
 	arrows = "civarsenal:cannonball_explosive",
 	sounds = {
 		max_hear_distance = 40,
+		gain = 0.4,
+	}
+})
+
+rcbows.register_bow("civarsenal:crossbow_wood", {
+	description = S("Wooden Crossbow"),
+	image = "civarsenal_crossbow_wood.png",
+	strength = 45,
+	uses = 150,
+	charge_time = 1.8,
+	base_texture = "civarsenal_base_crossbow_wood.png",
+	overlay_empty = "civarsenal_overlay_crossbow_empty.png",
+	overlay_charged = "civarsenal_overlay_crossbow_charged.png",
+	arrows = {"civarsenal:bolt_basic","civarsenal:bolt_heavy","civarsenal:bolt_fire","civarsenal:bolt_explosive"},
+	sounds = {
+		max_hear_distance = 10,
 		gain = 0.4,
 	}
 })
