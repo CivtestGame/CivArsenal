@@ -59,6 +59,7 @@ rcbows.register_arrow("civarsenal:cannonball_explosive", {
 			mod = "tnt",
 			damage = 5, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
 			radius = 2,
+			entity_damage = 20,
 		},
 		trail_particle = "civarsenal_particle_fire.png",
 	}
