@@ -12,6 +12,9 @@ rcbows.register_arrow("civarsenal:arrow_basic", {
 		description = S("Arrow"),
 		inventory_image = "civarsenal_arrow.png",
 	},
+	effects = {
+		trail_particle = "civarsenal_particle_smoke.png",
+	}
 })
 
 minetest.register_craft({
@@ -84,6 +87,9 @@ rcbows.register_arrow("civarsenal:bolt_basic", {
 		description = S("Bolt"),
 		inventory_image = "civarsenal_bolt.png",
 	},
+	effects = {
+		trail_particle = "civarsenal_particle_smoke.png",
+	}
 })
 
 rcbows.register_arrow("civarsenal:bolt_heavy", {
@@ -97,6 +103,9 @@ rcbows.register_arrow("civarsenal:bolt_heavy", {
 		description = S("Heavy Bolt"),
 		inventory_image = "civarsenal_bolt_heavy.png",
 	},
+	effects = {
+		trail_particle = "civarsenal_particle_smoke.png",
+	}
 })
 
 minetest.register_craft({
@@ -145,7 +154,7 @@ rcbows.register_arrow("civarsenal:bolt_explosive", {
 			radius = 0.5,
 			entity_damage = 6,
 		},
-		trail_particle = "civarsenal_particle_fire.png",
+		trail_particle = "civarsenal_particle_smoke.png",
 	}
 })
 
