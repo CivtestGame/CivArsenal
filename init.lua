@@ -150,9 +150,9 @@ rcbows.register_arrow("civarsenal:bolt_explosive", {
 	effects = {
 		explosion = {
 			mod = "tnt",
-			damage = 6, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
-			radius = 1,
-			entity_damage = 3,
+			damage = 8, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
+			radius = 1.5,
+			entity_damage = 2,
 		},
 		trail_particle = "civarsenal_particle_smoke.png",
 	}
@@ -162,6 +162,43 @@ minetest.register_craft({
 	output = "civarsenal:inv_bolt_explosive",
 	type = "shapeless",
 	recipe = {"tnt:tnt_stick", "civarsenal:inv_bolt"},
+})
+
+rcbows.register_arrow("civarsenal:shot_fragmentation", {
+	projectile_texture = "civarsenal_projectile_shot",
+	damage = 10 * default.DAMAGE_MULTIPLIER,
+	inventory_arrow = {
+		name = "civarsenal:inv_shot_fragmentation",
+		description = S("Fragmentation Shot"),
+		inventory_image = "civarsenal_shot_fragmentation.png",
+	},
+	drop = "",
+	stack_max = 10,
+	effects = {
+		explosion = {
+			mod = "tnt",
+			damage = 4, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
+			radius = 1.0,
+			entity_damage = 1,
+		},
+		trail_particle = "civarsenal_particle_smoke_tiny.png",
+	}
+})
+
+rcbows.register_arrow("civarsenal:shot_piercing", {
+	projectile_texture = "civarsenal_projectile_shot",
+	damage = 5 * default.DAMAGE_MULTIPLIER,
+	pierce = 15 * default.DAMAGE_MULTIPLIER,
+	drop = "",
+	stack_max = 10,
+	inventory_arrow = {
+		name = "civarsenal:inv_shot_piercing",
+		description = S("Armour Piercing Shot"),
+		inventory_image = "civarsenal_shot_piercing.png",
+	},
+	effects = {
+		trail_particle = "civarsenal_particle_smoke_tiny.png",
+	}
 })
 
 
@@ -181,7 +218,7 @@ rcbows.register_bow("civarsenal:bow_wood_short", {
 	overlay_charged = "civarsenal_overlay_charged.png",
 	arrows = {"civarsenal:arrow_basic","civarsenal:arrow_fire"},
 	sounds = {
-		max_hear_distance = 10,
+		max_hear_distance = 30,
 		gain = 0.4,
 	}
 })
@@ -197,7 +234,7 @@ rcbows.register_bow("civarsenal:bow_wood_long", {
 	overlay_charged = "civarsenal_overlay_charged_long.png",
 	arrows = {"civarsenal:arrow_basic","civarsenal:arrow_fire"},
 	sounds = {
-		max_hear_distance = 10,
+		max_hear_distance = 30,
 		gain = 0.4,
 	}
 })
@@ -213,7 +250,7 @@ rcbows.register_bow("civarsenal:bow_composite", {
 	overlay_charged = "civarsenal_overlay_charged.png",
 	arrows = {"civarsenal:arrow_basic","civarsenal:arrow_fire"},
 	sounds = {
-		max_hear_distance = 10,
+		max_hear_distance = 30,
 		gain = 0.4,
 	}
 })
@@ -223,14 +260,14 @@ rcbows.register_bow("civarsenal:handcannon", {
 	image = "civarsenal_handcannon.png",
 	strength = 40,
 	uses = 50,
-	charge_time = 7.2,
+	charge_time = 8.0,
 	base_texture = "civarsenal_handcannon.png",
 	overlay_empty = "civarsenal_overlay_handcannon_empty.png",
 	overlay_charged = "civarsenal_overlay_handcannon_charged.png",
 	arrows = "civarsenal:cannonball_explosive",
 	sounds = {
-		max_hear_distance = 40,
-		gain = 0.4,
+		max_hear_distance = 80,
+		gain = 0.8,
 	}
 })
 
@@ -238,14 +275,47 @@ rcbows.register_bow("civarsenal:crossbow_wood", {
 	description = S("Wooden Crossbow"),
 	image = "civarsenal_crossbow_wood.png",
 	strength = 45,
-	uses = 150,
-	charge_time = 2.8,
+	uses = 50,
+	charge_time = 3.2,
 	base_texture = "civarsenal_base_crossbow_wood.png",
 	overlay_empty = "civarsenal_overlay_crossbow_empty.png",
 	overlay_charged = "civarsenal_overlay_crossbow_charged.png",
 	arrows = {"civarsenal:bolt_basic","civarsenal:bolt_heavy","civarsenal:bolt_fire","civarsenal:bolt_explosive"},
 	sounds = {
-		max_hear_distance = 10,
+		max_hear_distance = 40,
 		gain = 0.4,
+	}
+})
+
+rcbows.register_bow("civarsenal:crossbow_composite", {
+	description = S("Composite Crossbow"),
+	image = "civarsenal_crossbow_composite.png",
+	strength = 55,
+	uses = 150,
+	charge_time = 2.8,
+	base_texture = "civarsenal_base_crossbow_composite.png",
+	overlay_empty = "civarsenal_overlay_crossbow_empty.png",
+	overlay_charged = "civarsenal_overlay_crossbow_charged.png",
+	arrows = {"civarsenal:bolt_basic","civarsenal:bolt_heavy","civarsenal:bolt_fire","civarsenal:bolt_explosive"},
+	sounds = {
+		max_hear_distance = 40,
+		gain = 0.4,
+	}
+})
+
+
+rcbows.register_bow("civarsenal:brass_rifle", {
+	description = S("Brass Rifle"),
+	image = "civarsenal_brass_rifle.png",
+	strength = 200,
+	uses = 100,
+	charge_time = 6.0,
+	base_texture = "civarsenal_brass_rifle.png",
+	overlay_empty = "civarsenal_overlay_brass_rifle_empty.png",
+	overlay_charged = "civarsenal_overlay_brass_rifle_charged.png",
+	arrows = {"civarsenal:shot_fragmentation","civarsenal:shot_piercing"},
+	sounds = {
+		max_hear_distance = 60,
+		gain = 0.6,
 	}
 })
