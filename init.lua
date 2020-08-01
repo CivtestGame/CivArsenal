@@ -150,8 +150,8 @@ rcbows.register_arrow("civarsenal:bolt_explosive", {
 	effects = {
 		explosion = {
 			mod = "tnt",
-			damage = 8, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
-			radius = 1.5,
+			damage = 6, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
+			radius = 1,
 			entity_damage = 2,
 		},
 		trail_particle = "civarsenal_particle_smoke.png",
@@ -166,7 +166,7 @@ minetest.register_craft({
 
 rcbows.register_arrow("civarsenal:shot_fragmentation", {
 	projectile_texture = "civarsenal_projectile_shot",
-	damage = 10 * default.DAMAGE_MULTIPLIER,
+	damage = 15 * default.DAMAGE_MULTIPLIER,
 	inventory_arrow = {
 		name = "civarsenal:inv_shot_fragmentation",
 		description = S("Fragmentation Shot"),
@@ -179,7 +179,7 @@ rcbows.register_arrow("civarsenal:shot_fragmentation", {
 			mod = "tnt",
 			damage = 4, --THIS IS EXPLOSION RADIUS, NOT EXPLICIT DAMAGE
 			radius = 1.0,
-			entity_damage = 1,
+			entity_damage = 1.5,
 		},
 		trail_particle = "civarsenal_particle_smoke_tiny.png",
 	}
@@ -187,7 +187,7 @@ rcbows.register_arrow("civarsenal:shot_fragmentation", {
 
 rcbows.register_arrow("civarsenal:shot_piercing", {
 	projectile_texture = "civarsenal_projectile_shot",
-	damage = 5 * default.DAMAGE_MULTIPLIER,
+	damage = 15 * default.DAMAGE_MULTIPLIER,
 	pierce = 15 * default.DAMAGE_MULTIPLIER,
 	drop = "",
 	stack_max = 10,
@@ -307,7 +307,7 @@ rcbows.register_bow("civarsenal:crossbow_composite", {
 rcbows.register_bow("civarsenal:brass_rifle", {
 	description = S("Brass Rifle"),
 	image = "civarsenal_brass_rifle.png",
-	strength = 200,
+	strength = 120,
 	uses = 100,
 	charge_time = 6.0,
 	base_texture = "civarsenal_brass_rifle.png",
