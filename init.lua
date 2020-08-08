@@ -220,7 +220,8 @@ rcbows.register_bow("civarsenal:bow_wood_short", {
 	sounds = {
 		max_hear_distance = 30,
 		gain = 0.4,
-	}
+	},
+        groups = { bow = 1 }
 })
 
 rcbows.register_bow("civarsenal:bow_wood_long", {
@@ -236,7 +237,8 @@ rcbows.register_bow("civarsenal:bow_wood_long", {
 	sounds = {
 		max_hear_distance = 30,
 		gain = 0.4,
-	}
+	},
+        groups = { bow = 1 }
 })
 
 rcbows.register_bow("civarsenal:bow_composite", {
@@ -252,7 +254,8 @@ rcbows.register_bow("civarsenal:bow_composite", {
 	sounds = {
 		max_hear_distance = 30,
 		gain = 0.4,
-	}
+	},
+        groups = { bow = 1 }
 })
 
 rcbows.register_bow("civarsenal:handcannon", {
@@ -284,7 +287,8 @@ rcbows.register_bow("civarsenal:crossbow_wood", {
 	sounds = {
 		max_hear_distance = 40,
 		gain = 0.4,
-	}
+	},
+        groups = { crossbow = 1 }
 })
 
 rcbows.register_bow("civarsenal:crossbow_composite", {
@@ -300,7 +304,8 @@ rcbows.register_bow("civarsenal:crossbow_composite", {
 	sounds = {
 		max_hear_distance = 40,
 		gain = 0.4,
-	}
+	},
+        groups = { crossbow = 1 }
 })
 
 
