@@ -18,12 +18,12 @@ rcbows.register_arrow("civarsenal:arrow_basic", {
 })
 
 minetest.register_craft({
-	output = "civarsenal:inv_arrow 5",
+	output = "civarsenal:inv_arrow 8",
 	type = "shaped",
 	recipe = {
-		{"", "", "group:metal_ingot"},
-		{"", "default:stick", ""},
-		{"group:wool", "", ""},
+		{"group:metal_ingot"},
+		{"default:stick"},
+		{"group:wool"},
 	}
 })
 
