@@ -3,9 +3,34 @@ civarsenal = {}
 -- internationalization boilerplate
 local S = minetest.get_translator(minetest.get_current_modname())
 
+rcbows.register_arrow("civarsenal:arrow_crude", {
+	projectile_texture = "civarsenal_projectile_arrow",
+	damage = 8 * default.DAMAGE_MULTIPLIER,
+	stack_max = 20,
+	inventory_arrow = {
+		name = "civarsenal:inv_arrow_crude",
+		description = S("Crude Arrow"),
+		inventory_image = "civarsenal_arrow_crude.png",
+	},
+	effects = {
+		trail_particle = "civarsenal_particle_smoke.png",
+	}
+})
+
+minetest.register_craft({
+	output = "civarsenal:inv_arrow_crude 4",
+	type = "shaped",
+	recipe = {
+		{"default:flint"},
+		{"default:stick"},
+		{"group:wool"},
+	}
+})
+
 rcbows.register_arrow("civarsenal:arrow_basic", {
 	projectile_texture = "civarsenal_projectile_arrow",
-	damage = 10 * default.DAMAGE_MULTIPLIER,
+	damage = 8 * default.DAMAGE_MULTIPLIER,
+	pierce = 4 * default.DAMAGE_MULTIPLIER,
 	stack_max = 20,
 	inventory_arrow = {
 		name = "civarsenal:inv_arrow",
@@ -216,7 +241,10 @@ rcbows.register_bow("civarsenal:bow_wood_short", {
 	base_texture = "civarsenal_base_bow_wood_short.png",
 	overlay_empty = "civarsenal_overlay_empty.png",
 	overlay_charged = "civarsenal_overlay_charged.png",
-	arrows = {"civarsenal:arrow_basic","civarsenal:arrow_fire"},
+	arrows = {
+           "civarsenal:arrow_crude", "civarsenal:arrow_basic",
+           "civarsenal:arrow_fire"
+        },
 	sounds = {
 		max_hear_distance = 30,
 		gain = 0.4,
@@ -233,7 +261,10 @@ rcbows.register_bow("civarsenal:bow_wood_long", {
 	base_texture = "civarsenal_base_bow_wood_long.png",
 	overlay_empty = "civarsenal_overlay_empty_long.png",
 	overlay_charged = "civarsenal_overlay_charged_long.png",
-	arrows = {"civarsenal:arrow_basic","civarsenal:arrow_fire"},
+	arrows = {
+           "civarsenal:arrow_crude", "civarsenal:arrow_basic",
+           "civarsenal:arrow_fire"
+        },
 	sounds = {
 		max_hear_distance = 30,
 		gain = 0.4,
@@ -250,7 +281,10 @@ rcbows.register_bow("civarsenal:bow_composite", {
 	base_texture = "civarsenal_base_bow_composite.png",
 	overlay_empty = "civarsenal_overlay_empty.png",
 	overlay_charged = "civarsenal_overlay_charged.png",
-	arrows = {"civarsenal:arrow_basic","civarsenal:arrow_fire"},
+	arrows = {
+           "civarsenal:arrow_crude", "civarsenal:arrow_basic",
+           "civarsenal:arrow_fire"
+        },
 	sounds = {
 		max_hear_distance = 30,
 		gain = 0.4,
